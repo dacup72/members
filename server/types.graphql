@@ -17,6 +17,7 @@ type User @model {
   flowdockName: String
   description: String
   role: UserRole @defaultValue(value: REGULAR)
+  projects: Project @relation(name: "ProjectChampions")
   # Uncomment below - you can declare relations between models like this
 
   # posts: [Post!]! @relation(name: "UserPosts")
@@ -47,4 +48,5 @@ type Project @model {
 
   name: String! @isUnique
   description: String
+  champions: [User!]! @relation(name: "ProjectChampions")
 }
